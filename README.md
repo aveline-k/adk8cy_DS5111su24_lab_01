@@ -7,7 +7,7 @@ In this lab, you will gather materials from project gutenberg as simple text.  Y
 Please read THROUGH ALL the instructions before you start, because only some of the files we use will be commited in your repository
 
 Before we get going, let's update the package manager on your linux box.  
-- `sudo apt update #` This is usual and necessary on new instances, but you don't have to do it every time you start, only if you terminate and start a whole new box
+- `sudo apt update` This is usual and necessary on new instances, but you don't have to do it every time you start, only if you terminate and start a whole new box
 
 ## Creating a repository ( 1 point)
 - In your github account, create a repository with the name <UVA ID>_DS5111su24_lab_01, this is important since we'll automate some of the process.
