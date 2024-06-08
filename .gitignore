@@ -1,6 +1,9 @@
 # ignore .txt files for Lab 1
 *.txt
 
+# Do not ignore requirements.txt
+!requirements.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
