@@ -1,4 +1,6 @@
-from tokenize import clean_text, tokenize, count_words
+import pytest
+
+from tokenizer import clean_text, tokenize, count_words
 
 def test_clean_text():
     assert clean_text("Hello, World!") == "hello world"
