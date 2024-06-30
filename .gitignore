@@ -1,4 +1,4 @@
-# ignore .txt files for Lab 1
+# ignore .txt files for Lab 1 (includes logs)
 *.txt
 
 # Do not ignore requirements.txt
