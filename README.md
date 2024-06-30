@@ -14,3 +14,6 @@ This project contains functions to process text: `clean_text`, `tokenize`, and `
 ```python
 text = "But the Raven, sitting lonely on the placid bust, spoke only."
 print(count_words(text))
+```
+
+[![Actions Status](https://github.com/{aveline-k}/{adk8cy_DS5111su24_lab_01}/workflows/Python%20package/badge.svg)](https://github.com/{aveline-k}/{adk8cy_DS5111su24_lab_01}/actions)
