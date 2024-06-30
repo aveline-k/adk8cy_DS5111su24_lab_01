@@ -6,10 +6,9 @@ from tokenizer import clean_text, tokenize, count_words
 import os
 
 def read_file(file_name):
-    script_dir = os.path.dirname(__file__)
-    file_path = os.path.join(script_dir, '..', file_name)
-    abs_file_path = os.path.abspath(os.path.realpath(file_path))
-    with open(abs_file_path, 'r') as file:
+    base_path = os.path.dirname(os.path.dirname(__file__))
+    file_path = os.path.join(base_path, file_name)
+    with open(file_path, 'r') as file:
         return file.read()
 
 @pytest.mark.parametrize("file_name", [
