@@ -24,9 +24,6 @@ jobs:
         run: |
           make setup
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Set PYTHONPATH
-        run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
       - name: Test with pytest
         run: |
           pytest -vvx tests/
