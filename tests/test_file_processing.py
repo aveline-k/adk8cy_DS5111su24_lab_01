@@ -5,9 +5,10 @@ import pytest
 from tokenizer import clean_text, tokenize, count_words
 import os
 
-def read_file(file_path):
+def read_file(file_name):
     script_dir = os.path.dirname(__file__)
-    abs_file_path = os.path.join(script_dir, '..', file_path)
+    file_path = os.path.join(script_dir, '..', file_name)
+    abs_file_path = os.path.abspath(os.path.realpath(file_path))
     with open(abs_file_path, 'r') as file:
         return file.read()
 
