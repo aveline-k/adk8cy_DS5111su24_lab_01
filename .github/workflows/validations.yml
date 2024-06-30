@@ -27,9 +27,9 @@ jobs:
       - name: Execute get_the_books.sh
         run: |
           bash get_the_books.sh
-      - name: Run Makefile
+      - name: Run Non-Integration Tests
         run: |
-          make
-      - name: Test with pytest
+          make test
+      - name: Run Integration Tests
         run: |
-          pytest -vvx tests/
+          make test_integration

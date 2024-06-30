@@ -79,7 +79,6 @@ def test_count_words_french():
 def test_japanese_text():
     assert False
 
-
 @pytest.mark.skipif(sys.platform != "linux", reason="Only runs on Linux")
 def test_linux_only():
     assert True
@@ -99,4 +98,17 @@ def test_bash_comparison():
         bash_counts[word.lower()] = int(count)
 
     assert result == bash_counts
+    
+@pytest.mark.integration
+def test_integration():
 
+    text = "The Raven is a novel."
+    
+    cleaned_text = clean_text(text)
+    tokens = tokenize(cleaned_text)
+    word_counts = count_words(cleaned_text)
+
+    assert isinstance(cleaned_text, str)
+    assert isinstance(tokens, list)
+    assert isinstance(word_counts, dict)
+    assert word_counts.get("the", 0) == 1 

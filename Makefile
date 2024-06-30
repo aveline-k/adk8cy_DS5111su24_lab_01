@@ -26,7 +26,10 @@ setup:
 	. env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
 
 test:
-	. env/bin/activate; pytest
+    . env/bin/activate; pytest -m "not integration"
+
+test_integration:
+    . env/bin/activate; pytest -m integration
 
 lint:
 	. env/bin/activate; pylint tokenizer.py
