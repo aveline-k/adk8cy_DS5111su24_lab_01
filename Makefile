@@ -29,8 +29,6 @@ setup:
 	. env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
 
 test:
-	. env/bin/activate;
-	export PYTHONPATH=$PYTHONPATH:$(pwd); \
-	pytest
+	. env/bin/activate; export PYTHONPATH=$(pwd); pytest
 lint:
 	. env/bin/activate; pylint tokenizer.py
