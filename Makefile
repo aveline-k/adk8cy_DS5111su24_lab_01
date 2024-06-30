@@ -23,3 +23,13 @@ total_words:
 
 clean:
 	rm -f book_17192.txt
+
+setup:
+	python3 -m venv env
+	. env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
+
+test:
+	. env/bin/activate; pytest
+
+lint:
+	. env/bin/activate; pylint tokenizer.py
