@@ -6,7 +6,7 @@ from tokenizer import clean_text, tokenize, count_words
 import os
 
 def read_file(file_name):
-    base_path = os.path.dirname(os.path.dirname(__file__))
+    base_path = os.path.dirname(__file__)
     file_path = os.path.join(base_path, file_name)
     with open(file_path, 'r') as file:
         return file.read()
