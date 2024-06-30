@@ -45,12 +45,10 @@ def test_all_files():
     # Given a list of file paths
     files = ["book_17192.txt", "book_932.txt", "book_1063.txt", "book_14082.txt"]
     combined_text = " ".join([read_file(f) for f in files])
-
     # When passed to each function
     cleaned = clean_text(combined_text)
     tokens = tokenize(combined_text)
     counts = count_words(combined_text)
-    
     # Then ensure the outputs are valid
     assert isinstance(cleaned, str)
     assert isinstance(tokens, list)
@@ -101,7 +99,6 @@ def test_bash_comparison():
     
 @pytest.mark.integration
 def test_integration():
-
     text = "The Raven is a novel."
     
     cleaned_text = clean_text(text)
