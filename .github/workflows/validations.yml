@@ -33,3 +33,9 @@ jobs:
       - name: Run Integration Tests
         run: |
           make test_integration
+      - name: Run intentionally failing test
+        run: pytest --maxfail=1
+  
+      - name: Cat logs if failed
+        if: ${{ failure() }}
+        run: cat ${{ github.workspace }}/logs/test_logs.txt

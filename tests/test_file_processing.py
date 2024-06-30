@@ -112,3 +112,7 @@ def test_integration():
     assert isinstance(tokens, list)
     assert isinstance(word_counts, dict)
     assert word_counts.get("the", 0) == 1 
+
+@pytest.mark.xfail(strict=True, reason="This test fails intentionally")
+def test_fail_intentionally():
+    assert False, "This test intentionally fails."

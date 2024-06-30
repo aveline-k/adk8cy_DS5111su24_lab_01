@@ -1,6 +1,9 @@
 # ignore .txt files for Lab 1
 *.txt
 
+# ignore logs directory
+logs/
+
 # Do not ignore requirements.txt
 !requirements.txt
 
