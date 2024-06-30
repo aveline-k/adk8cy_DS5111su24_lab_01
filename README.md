@@ -16,4 +16,4 @@ text = "But the Raven, sitting lonely on the placid bust, spoke only."
 print(count_words(text))
 ```
 
-[![Python package](https://github.com/aveline-k/adk8cy_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=WEEK-05%2Fgithub_automation&event=workflow_run)](https://github.com/aveline-k/adk8cy_DS5111su24_lab_01/actions/workflows/validations.yml)
+[![Python package](https://github.com/aveline-k/adk8cy_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg)](https://github.com/aveline-k/adk8cy_DS5111su24_lab_01/actions/workflows/validations.yml)
