@@ -1,11 +1,15 @@
-# tests/test_count_words.py
-
 import pytest
-from src.adk8cy.tokenizer import count_words
 import sys
 import os
 
-sys.path.append('./src')
+current_dir = os.path.dirname(os.path.abspath(__file__))
+repo_root = os.path.abspath(os.path.join(current_dir, os.pardir))
+src_dir = os.path.join(repo_root, 'src')
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
+from adk8cy.tokenizer import count_words
+
 
 def test_count_words():
     # Given a string with repeated words
