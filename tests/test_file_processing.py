@@ -1,8 +1,11 @@
 # tests/test_file_processing.py
 import sys
 import pytest
-from tokenizer import clean_text, tokenize, count_words
+from src.adk8cy.tokenizer import clean_text, tokenize, count_words
 import os
+import sys
+
+sys.path.append('./src')
 
 def read_file(file_name):
     base_path = os.path.dirname(os.path.dirname(__file__))

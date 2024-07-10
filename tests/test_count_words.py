@@ -1,7 +1,11 @@
 # tests/test_count_words.py
 
 import pytest
-from tokenizer import count_words
+from src.adk8cy.tokenizer import count_words
+import sys
+import os
+
+sys.path.append('./src')
 
 def test_count_words():
     # Given a string with repeated words
