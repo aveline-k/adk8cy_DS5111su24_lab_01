@@ -29,6 +29,9 @@ jobs:
       - name: Execute get_the_books.sh
         run: |
           bash get_the_books.sh
+      - name: Run Linter
+        run: |
+          make lint
       - name: Run Non-Integration Tests
         run: |
           make test
