@@ -1,0 +1,42 @@
+name: Python package
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+        PYTHONPATH: ./
+    strategy:
+      matrix:
+        python-version: ["3.7"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          make setup
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Create logs directory
+        run: mkdir -p logs
+      - name: Execute get_the_books.sh
+        run: |
+          bash get_the_books.sh
+      - name: Run Non-Integration Tests
+        run: |
+          make test
+      - name: Run Integration Tests
+        run: |
+          make test_integration
+      - name: Run intentionally failing test
+        run: pytest --maxfail=1 --log-file=logs/test_logs.txt --log-file-level=INFO
+      - name: Cat logs if failed
+        if: ${{ failure() }}
+        run: cat logs/test_logs.txt

@@ -1,11 +1,12 @@
-
 # tests/test_file_processing.py
 import sys
 import pytest
 from tokenizer import clean_text, tokenize, count_words
 import os
 
-def read_file(file_path):
+def read_file(file_name):
+    base_path = os.path.dirname(os.path.dirname(__file__))
+    file_path = os.path.join(base_path, file_name)
     with open(file_path, 'r') as file:
         return file.read()
 
@@ -44,12 +45,10 @@ def test_all_files():
     # Given a list of file paths
     files = ["book_17192.txt", "book_932.txt", "book_1063.txt", "book_14082.txt"]
     combined_text = " ".join([read_file(f) for f in files])
-
     # When passed to each function
     cleaned = clean_text(combined_text)
     tokens = tokenize(combined_text)
     counts = count_words(combined_text)
-    
     # Then ensure the outputs are valid
     assert isinstance(cleaned, str)
     assert isinstance(tokens, list)
@@ -78,7 +77,6 @@ def test_count_words_french():
 def test_japanese_text():
     assert False
 
-
 @pytest.mark.skipif(sys.platform != "linux", reason="Only runs on Linux")
 def test_linux_only():
     assert True
@@ -98,4 +96,20 @@ def test_bash_comparison():
         bash_counts[word.lower()] = int(count)
 
     assert result == bash_counts
+    
+@pytest.mark.integration
+def test_integration():
+    text = "The Raven is a novel."
+    
+    cleaned_text = clean_text(text)
+    tokens = tokenize(cleaned_text)
+    word_counts = count_words(cleaned_text)
 
+    assert isinstance(cleaned_text, str)
+    assert isinstance(tokens, list)
+    assert isinstance(word_counts, dict)
+    assert word_counts.get("the", 0) == 1 
+
+@pytest.mark.xfail(strict=True, reason="This test fails intentionally")
+def test_fail_intentionally():
+    assert False, "This test intentionally fails."
