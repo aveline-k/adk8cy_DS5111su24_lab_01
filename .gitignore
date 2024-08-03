@@ -3,6 +3,7 @@
 
 # Do not ignore requirements.txt
 !requirements.txt
+!test_logs.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

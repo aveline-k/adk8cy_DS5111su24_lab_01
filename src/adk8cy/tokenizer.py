@@ -1,4 +1,7 @@
 import logging
+import sys
+
+sys.path.append('./src')
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 

@@ -1,8 +1,17 @@
 # tests/test_file_processing.py
-import sys
 import pytest
-from tokenizer import clean_text, tokenize, count_words
+import sys
 import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+repo_root = os.path.abspath(os.path.join(current_dir, os.pardir))
+src_dir = os.path.join(repo_root, 'src')
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
+
+from adk8cy.tokenizer import clean_text, tokenize, count_words
+
 
 def read_file(file_name):
     base_path = os.path.dirname(os.path.dirname(__file__))
